@@ -22,7 +22,7 @@ The process is based on the end to end behavioral cloning for self driving cars 
 Training mode is to collect the data and autonomous mode is to see whether our car runs automatically after the model is trained
 
 ## Implementation
-![alt text](./pop.png "Title")
+![alt text](images/pop.png "Title")
 1. As shown in the diagram above, the car is first driven on a track using the simulator and the steering angles along with the images captured by the three front cameras of the car are recorded and saved as a csv file. We can create as many data samples as we want for different scenarios by driving on the same chosen track multiple times.
 The model will be only as good as the data is, so it is important to drive along the track without any agreesive turns and must be mostly at the center of the road.
 
@@ -31,7 +31,7 @@ The model will be only as good as the data is, so it is important to drive along
 3. For preprocessing, The images are flipped and the corresponding steering angles are negated. For the left and right camera feeds, the steering angles assigned to them will be offsetted by (+ or - 0.2) value so that it doesnt go off the track.
 4. To visualise the data, histogram was plotted and it was found to have a few dominating bins. 
 
-![alt text](./hist_before.png "Title")
+![alt text](images/hist_before.png "Title")
 
 5. This was corrected by resampling the data to its men by randomly delecting the data above the mean value and the resulting histogram had a more uniform look.
 6. The images fed into the model are then cropped from the top and bottom to remove the information that are needless for the model. It is shown by the red demarcation line.
