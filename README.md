@@ -1,4 +1,4 @@
-# Behavior-Cloning-Project
+# Behavioral-Cloning-Project
 
 ### Prerequisites
 1. Linux OS (preferably Ubuntu)
