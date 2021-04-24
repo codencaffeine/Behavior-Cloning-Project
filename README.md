@@ -58,12 +58,7 @@ The car was made to run multiple laps both in the forward and the reverse direct
 4. This model when run with the simulator made the car run perfectly along the center of the road without ever touching the lane lines.
 
 ## Results
-<!-- blank line -->
-<figure class="video_container">
-  <iframe src="https://youtu.be/-HbtKSCBs6k" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-<!-- blank line -->
-
+[![Behavior Cloning - 5 Epochs (Best performance)](https://res.cloudinary.com/marcomontalbano/image/upload/v1619308530/video_to_markdown/images/youtube---HbtKSCBs6k-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/-HbtKSCBs6k "Behavior Cloning - 5 Epochs (Best performance)")
 
 ## References
 [1] Bojarski, Mariusz, D. Testa, Daniel Dworakowski, Bernhard Firner, Beat Flepp, Prasoon Goyal, L. Jackel, Mathew Monfort, Urs Muller, Jiakai Zhang, X. Zhang, Jake Zhao and Karol Zieba. “End to End Learning for Self-Driving Cars.” ArXiv abs/1604.07316 (2016): n. pag.
