@@ -58,9 +58,12 @@ The car was made to run multiple laps both in the forward and the reverse direct
 4. This model when run with the simulator made the car run perfectly along the center of the road without ever touching the lane lines.
 
 ## Results
+<!-- blank line -->
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
+<!-- blank line -->
+
 
 ## References
 [1] Bojarski, Mariusz, D. Testa, Daniel Dworakowski, Bernhard Firner, Beat Flepp, Prasoon Goyal, L. Jackel, Mathew Monfort, Urs Muller, Jiakai Zhang, X. Zhang, Jake Zhao and Karol Zieba. “End to End Learning for Self-Driving Cars.” ArXiv abs/1604.07316 (2016): n. pag.
