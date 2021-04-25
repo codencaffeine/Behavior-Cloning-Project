@@ -30,7 +30,7 @@ The process is based on the end-to-end behavioral cloning for self-driving cars 
 Training mode is to collect the data and autonomous mode is to see whether our car runs automatically after the model is trained. The steering angle of the car is the output with the camera feeds from the three images are taken as the only inputs to the model.
 
 ## Implementation
-![alt text](images/pop.png "Title")
+![alt text](images/pop.png =10x)
 1. As shown in the diagram above, the car is first driven on a track using the simulator and the steering angles along with the images captured by the three front cameras of the car are recorded and saved as a CSV file. We can create as many data samples as we want for different scenarios by driving on the same chosen track multiple times.
 The model will be only as good as the data is, so it is important to drive along the track without any aggressive turns and must be mostly at the center of the road.
 
