@@ -1,4 +1,4 @@
-# Behavioral-Cloning-Project
+# End to End Behavioral cloning 
 ![alt text](images/simulator.png "Title")
 
 ## Table of Contents
@@ -18,7 +18,6 @@
 5. Download Data from [data file link](https://duckduckgo.com) or pickle from [pickle file link]()
 
 
-# End to End Behavioral cloning 
 ## Abstract
 ### This project presents an imitation learning-based approach for autonomous driving.
 Autonomous driving has been a topic of extensive research in the last few decades and many approaches have been deployed to solve the problems arising from having an unmanned vehicle. One such approach gained popularity a few years ago when Nvidia proposed a model that was not based on the standard robotics-based approach but on end to end deep learning. This approach gave promising results when they drove an actual car on the roads they trained it on. 
@@ -67,6 +66,13 @@ And the model will be only as good as the data is, so it is important to drive a
 ![alt text](images/unnamed-2.png "Title") 
 The car was made to run multiple laps both in the forward and the reverse directions.
 4. This model when run with the simulator made the car navigate perfectly along the center of the road without ever touching the lane lines for the best model.
+
+## Results
+[![Behavior Cloning - 5 Epochs (Best performance)](https://res.cloudinary.com/marcomontalbano/image/upload/v1619308530/video_to_markdown/images/youtube---HbtKSCBs6k-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/-HbtKSCBs6k "Behavior Cloning - 5 Epochs (Best performance)")
+
+[![Behavioral Cloning - 50 Epochs](https://res.cloudinary.com/marcomontalbano/image/upload/v1619309770/video_to_markdown/images/youtube--UCcqcWY63Ug-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/UCcqcWY63Ug "Behavioral Cloning - 50 Epochs")
+
+
 
 ## References
 [1] Bojarski, Mariusz, D. Testa, Daniel Dworakowski, Bernhard Firner, Beat Flepp, Prasoon Goyal, L. Jackel, Mathew Monfort, Urs Muller, Jiakai Zhang, X. Zhang, Jake Zhao and Karol Zieba. “End to End Learning for Self-Driving Cars.” ArXiv abs/1604.07316 (2016): n. pag.
