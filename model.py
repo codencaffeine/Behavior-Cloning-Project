@@ -1,3 +1,5 @@
+# Imports
+
 import csv
 import cv2
 import numpy as np
@@ -7,6 +9,7 @@ import random
 import pickle
 import pandas as pd
 
+# Read data from pkl [True or False]
 pkl = False
 
 if pkl:
@@ -17,6 +20,7 @@ else:
     print("Loading Data from files...")
     dir = './data/IMG/'
 
+    # Read the CSV file
     df = pd.read_csv('./data/driving_log.csv', header=None)
 
     images = []
@@ -24,6 +28,7 @@ else:
     measurements = []
     measurement_flipped = []
 
+    # Extract image path and read images
     for index, row in df.iterrows():
         for col in range(3):
             source_path = row[col]
@@ -31,8 +36,9 @@ else:
             current_path = dir + filename
             image = cv2.imread(current_path)
             images.append(image)
-            image_flipped.append(np.fliplr(image))
+            image_flipped.append(np.fliplr(image)) # Augmenting the data
 
+        # Adding measurements corresponding to each camera angle
         measurement = float(row[3])
         measurements.append(measurement)
         measurements.append(measurement+0.2)
@@ -40,10 +46,12 @@ else:
 
     print("Total Images: ", len(images)," | Total Measurements: ",len(measurements))
 
+    # Combining all images and measurements (original & flipped)
     aug_images = images + image_flipped
     measurement_flipped = [-1*x for x in measurements]
     aug_measurements = measurements + measurement_flipped
 
+    # Plotting original steering data histogram 
     nbin = 25
     hist, bins = np.histogram(aug_measurements, nbin)
     width = 0.7 * (bins[1] - bins[0])
@@ -51,9 +59,12 @@ else:
     plt.bar(center, hist, align='center', width=width)
     plt.savefig("./examples/old_hist.png")
     plt.show()
+
+    # Finding mean of measurement data
     avg_value = np.mean(hist)
     print("Mean of Measurement: ", avg_value)
 
+    # Randomly sampling data to fit within the mean value
     keep_prob = []
     for i in range(nbin):
         if hist[i] <= avg_value:
@@ -67,17 +78,20 @@ else:
             if aug_measurements[i] > bins[j] and aug_measurements[i] <= bins[j+1]:
                 if random.random() < (1-keep_prob[j]):
                     remove_ind.append(i)
-    
+
+    # Removing images and measurements above mean value
     df1= pd.DataFrame(list(zip(aug_images, aug_measurements)))
     df1.drop(remove_ind, inplace=True)
 
     new_images = df1[0].tolist()
     new_measurements = df1[1].tolist()
 
+    # Pickling data for later use
     print("Saving pickle... ")
     with open('data.pkl','wb') as f:
         pickle.dump([new_images, new_measurements], f)
 
+# Plotting the new histogram (adjusted to mean)
 nbin = 25
 hist, bins = np.histogram(new_measurements, nbin)
 width = 0.7 * (bins[1] - bins[0])
@@ -85,8 +99,8 @@ center = (bins[:-1] + bins[1:]) / 2
 plt.bar(center, hist, align='center', width=width)
 plt.savefig("./examples/new_hist.png")
 plt.show()
-avg_value = np.mean(hist)
 
+# Preparing training data
 X_train = np.array(new_images)
 y_train = np.array(new_measurements)
 
@@ -98,15 +112,17 @@ from keras.layers import Cropping2D, Dropout, Activation, MaxPooling2D
 from keras.optimizers import Adam, SGD, RMSprop
 from tensorflow import keras
 
+# Model Parameters
 activation_fn = "relu"
-learning_rate = 1e-4
-epochs = 5
+learning_rate = 1e-3
+epochs = 10
 loss_fn = keras.losses.MeanSquaredError()
-optimizer_fn = Adam(learning_rate=learning_rate)
 
+# optimizer_fn = Adam(learning_rate=learning_rate)
 # optimizer_fn = SGD(learning_rate=learning_rate)
-# optimizer_fn = RMSprop(learning_rate=learning_rate)
+optimizer_fn = RMSprop(learning_rate=learning_rate)
 
+# Model network
 model = Sequential([
     Lambda(lambda x: x/255.0 - 0.5, input_shape = (160,320,3)),
     Cropping2D(cropping = ((70,25),(0,0))),
@@ -126,10 +142,12 @@ model = Sequential([
     Dense(1),
 ])
 
+# Setting the parameters
 model.compile(optimizer = optimizer_fn,
               loss      = loss_fn,
               metrics=['mse'])
-              
+
+# Training the model (weights and biases)        
 history_object = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2, shuffle=True)
 
 # plt.plot(history_object.history['accuracy'])
@@ -137,6 +155,7 @@ history_object = model.fit(X_train, y_train, epochs=epochs, validation_split=0.2
 # plt.ylabel("Accuracy")
 # plt.show()
 
+# Plotting Epoch vs MSE
 plt.plot(history_object.history['mse'])
 plt.xlabel("Epochs")
 plt.ylabel("MSE")
