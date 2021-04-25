@@ -60,10 +60,10 @@ And the model will be only as good as the data is, so it is important to drive a
 1. The program was written based on experimentation and what led to the smoothest ride on the track. This was done by letting the car drive autonomously after each time the model was trained with a different set of parameter. 
 2. The combination of the following proved to be best suited for this project.
 
-![alt text](./table.png "Title")  
+![alt text](images/table.png "Title")  
 
 3. The image below was the result showing the car going off-track when the optimizer was changed to SGD, as it could not converge even with 50 epochs.
-![alt text](./unnamed-2.png "Title") 
+![alt text](images/unnamed-2.png "Title") 
 The car was made to run multiple laps both in the forward and the reverse directions.
 4. This model when run with the simulator made the car navigate perfectly along the center of the road without ever touching the lane lines for the best model.
 
