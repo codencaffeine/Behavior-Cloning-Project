@@ -1,4 +1,5 @@
 # Behavioral-Cloning-Project
+![alt text](images/simulator.png "Title")
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
