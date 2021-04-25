@@ -68,8 +68,10 @@ The car was made to run multiple laps both in the forward and the reverse direct
 4. This model when run with the simulator made the car navigate perfectly along the center of the road without ever touching the lane lines for the best model.
 
 ## Results
+Behavior Cloning - 5 Epochs (Best performance
 [![Behavior Cloning - 5 Epochs (Best performance)](https://res.cloudinary.com/marcomontalbano/image/upload/v1619308530/video_to_markdown/images/youtube---HbtKSCBs6k-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/-HbtKSCBs6k "Behavior Cloning - 5 Epochs (Best performance)")
 
+Behavioral Cloning - 50 Epochs (Failed)
 [![Behavioral Cloning - 50 Epochs](https://res.cloudinary.com/marcomontalbano/image/upload/v1619309770/video_to_markdown/images/youtube--UCcqcWY63Ug-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/UCcqcWY63Ug "Behavioral Cloning - 50 Epochs")
 
 
