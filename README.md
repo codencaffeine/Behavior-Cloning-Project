@@ -1,6 +1,15 @@
 # Behavioral-Cloning-Project
 
-### Prerequisites
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Abstract](#abstract)
+3. [Motivation](#motivation)
+4. [Implementation](#implementation)
+5. [Evaluation](#evaluation)
+6. [Results](#results)
+7. [References](#references)
+
+## Prerequisites
 1. Linux OS (preferably Ubuntu)
 2. Download simulator [here](https://s3-us-west-1.amazonaws.com/udacity-selfdrivingcar/Term1-Sim/term1-simulator-linux.zip)
 3. Miniconda [here](https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh)
@@ -8,7 +17,6 @@
 5. Download Data from [data file link](https://duckduckgo.com) or pickle from [pickle file link]()
 
 
-# End to End Behavioral cloning 
 ## Abstract
 ### This project presents an imitation learning-based approach for autonomous driving.
 Autonomous driving has been a topic of extensive research in the last few decades and many approaches have been deployed to solve the problems arising from having an unmanned vehicle. One such approach gained popularity a few years ago when Nvidia proposed a model that was not based on the standard robotics-based approach but on end to end deep learning. This approach gave promising results when they drove an actual car on the roads they trained it on. 
