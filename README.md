@@ -24,14 +24,14 @@ Autonomous driving has been a topic of extensive research in the last few decade
 The main challenges today for autonomous cars are conditions like unmarked or unpaved roads, or the time of the day when the reflection of the sun rays affects the visibility of the road lines, etc. In such conditions, the systems based on lane detection face a high chance of failure and have not been able to perform robustly. The approach thus has an advantage in such cases as it does not deploy lane detection and can drive successfully even through unpaved roads, parking lots, etc. with less computation than the traditional robotics control approach.
 
 
-<!-- ![alt text](./hist_before.png "Title") -->
+<!-- ![alt text](images/hist_before.png "Title") -->
 ## Motivation
 
 The process is based on the end-to-end behavioral cloning for self-driving cars by Nvidia [1]. The simulator used to implement this project is provided by Udacity. There are two modes after installation: training mode and autonomous mode.
 Training mode is to collect the data and autonomous mode is to see whether our car runs automatically after the model is trained. The steering angle of the car is the output with the camera feeds from the three images are taken as the only inputs to the model.
 
 ## Implementation
-![alt text](./pop.png "Title")
+![alt text](images/pop.png "Title")
 1. As shown in the diagram above, the car is first driven on a track using the simulator and the steering angles along with the images captured by the three front cameras of the car are recorded and saved as a CSV file. We can create as many data samples as we want for different scenarios by driving on the same chosen track multiple times. More the data, the merrier! This model was trained on 12000 samples of images as there was time, space and computation constraints. The car has to be driven for hours on the chosen track to collect more data samples, which will give better results to observe.
 And the model will be only as good as the data is, so it is important to drive along the track without any aggressive turns and must be mostly at the center of the road.
 
@@ -40,14 +40,14 @@ And the model will be only as good as the data is, so it is important to drive a
 3. For preprocessing, The images are flipped and the corresponding steering angles are negated. For the left and right camera feeds, the steering angles assigned to them will be offset by (+ or - 0.2) value so that it doesn't go off the track.
 4. To visualize the data, a histogram is plotted and it was found to have a few dominating bins. 
 
-![alt text](./hist_before.png "Title")
+![alt text](images/hist_before.png "Title")
 
 5. This is corrected by resampling the data to its mean by randomly deleting the data above the mean value and the resulting histogram has a more uniform look.
 
-![alt text](./hist_after.png "Title")
+![alt text](images/hist_after.png "Title")
 
 6. The images fed into the model are then cropped from the top and bottom to remove the information that is needless for the model (sky and trees or the hood of the car). It is shown by the red demarcation line.
-![alt text](./demark.png "Title")
+![alt text](images/demark.png "Title")
  
 7. After which, the image values are normalized.
 8. I am using a sequential CNN model programmed using the Keras API along with the loss function as MSE. The optimizer is Adam and the activation function is Rectifier Linear Unit.
