@@ -39,7 +39,7 @@ The model will be only as good as the data is, so it is important to drive along
 3. For preprocessing, The images are flipped and the corresponding steering angles are negated. For the left and right camera feeds, the steering angles assigned to them will be offset by (+ or - 0.2) value so that it doesn't go off the track.
 4. To visualize the data, a histogram was plotted and it was found to have a few dominating bins. 
 
-![alt text](images/hist_before.png =250x "Title")
+![alt text](images/hist_before.png =100x)
 
 5. This was corrected by resampling the data to its mean by randomly deleting the data above the mean value and the resulting histogram had a more uniform look.
 
