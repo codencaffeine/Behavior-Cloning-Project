@@ -38,6 +38,8 @@ And the model will be only as good as the data is, so it is important to drive a
 2. The first step is to read the data from the CSV file. After which the data has to be preprocessed before it can be given to the model.
 
 3. For preprocessing, The images are flipped and the corresponding steering angles are negated. For the left and right camera feeds, the steering angles assigned to them will be offset by (+ or - 0.2) value so that it doesn't go off the track.
+![alt text](images/angles.png "Title")
+
 4. To visualize the data, a histogram is plotted and it was found to have a few dominating bins. 
 
 ![alt text](images/hist_before.png "Title")
@@ -60,7 +62,7 @@ And the model will be only as good as the data is, so it is important to drive a
 1. The program was written based on experimentation and what led to the smoothest ride on the track. This was done by letting the car drive autonomously after each time the model was trained with a different set of parameter. 
 2. The combination of the following proved to be best suited for this project.
 
-![alt text](images/table.png "Title")  
+![alt text](images/observation.png "Title")  
 
 3. The image below was the result showing the car going off-track when the optimizer was changed to SGD, as it could not converge even with 50 epochs.
 ![alt text](images/unnamed-2.png "Title") 
